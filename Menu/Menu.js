@@ -6,7 +6,8 @@ let menuItems = [
   "What's New",
   'Tech Trends',
   'Music',
-  'Log Out'
+  'Log Out',
+  'Go To Sleep'
 ];
 
 /* 
@@ -33,3 +34,46 @@ let menuItems = [
   Step 6: add the menu component to the DOM.
   
 */
+
+const fullMenu = document.querySelector('body');
+fullMenu.appendChild(newMenu(menuItems));
+
+function newMenu(){
+
+const menu1 = document.createElement('div');
+const listItems = document.createElement('ul');
+const item1 = document.createElement('li');
+const item2 = document.createElement('li');
+const item3 = document.createElement('li');
+const item4 = document.createElement('li');
+const item5 = document.createElement('li');
+const item6 = document.createElement('li');
+const item7 = document.createElement('li');
+
+menu1.appendChild(listItems);
+listItems.appendChild(item1);
+listItems.appendChild(item2);
+listItems.appendChild(item3);
+listItems.appendChild(item4);
+listItems.appendChild(item5);
+listItems.appendChild(item6);
+listItems.appendChild(item7);
+
+item1.textContent = menuItems[0];
+item2.textContent = menuItems[1];
+item3.textContent = menuItems[2];
+item4.textContent = menuItems[3];
+item5.textContent = menuItems[4];
+item6.textContent = menuItems[5];
+item7.textContent = menuItems[6];
+
+menu1.classList.add('menu')
+
+const button = document.querySelector('.menu-button');
+button.addEventListener('click', () => {
+  menu1.classList.toggle('menu--open');
+})
+
+return menu1;
+
+}
